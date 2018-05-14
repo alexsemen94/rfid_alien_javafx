@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <Pane prefHeight="52.0" prefWidth="789.0" style="-fx-background-color: #0c3868;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <JFXButton layoutX="1310.0" layoutY="3.0" onAction="#clckConnection" textFill="#0c3868">
+                <graphic>
+                    <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" smooth="false">
+                        <image>
+                            <Image url="@plus.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </JFXButton>
+            <JFXButton layoutX="11.0" layoutY="3.0" onAction="#clckBaseStart" textFill="#0c3868">
+                <graphic>
+                    <ImageView fx:id="imgBase" fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" smooth="false">
+                        <image>
+                            <Image url="@menu-button.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </JFXButton>
+            <JFXButton layoutX="1363.0" layoutY="3.0" onAction="#clckSettings" textFill="#0c3868">
+                <graphic>
+                    <ImageView fx:id="imgSettings" fitHeight="37.0" fitWidth="44.0" pickOnBounds="true" smooth="false">
+                        <image>
+                            <Image url="@settings.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </JFXButton>
+            <JFXTextField labelFloat="true" layoutX="841.0" layoutY="13.0" prefHeight="25.0" prefWidth="186.0" promptText="Search" style="-fx-background-color: #fff;" />
+         <JFXButton alignment="TOP_RIGHT" layoutX="1455.0" layoutY="-3.0" onAction="#clckClose" prefHeight="25.0" prefWidth="45.0" text="/" textAlignment="JUSTIFY" textFill="#0c3868">
+            <graphic>
+               <ImageView fx:id="imgSettings1" fitHeight="13.0" fitWidth="12.0" pickOnBounds="true" smooth="false">
+                  <image>
+                     <Image url="@letter-x.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </JFXButton>
+        </children>
+    </Pane>
+
+    <Pane fx:id="pnlBase" layoutY="52.0" prefHeight="763.0" prefWidth="1500.0">
+        <children>
+            <HBox prefHeight="737.0" prefWidth="1500.0" style="-fx-background-color: #fff;">
+                <children>
+                    <VBox maxWidth="84.0" prefHeight="737.0" prefWidth="84.0" HBox.hgrow="ALWAYS">
+                        <children>
+                            <Separator prefHeight="10.0" prefWidth="11.0">
+                                <VBox.margin>
+                                    <Insets top="46.0" />
+                                </VBox.margin>
+                            </Separator>
+                            <JFXButton onAction="#btnStartRfidRead" prefHeight="66.0" prefWidth="77.0" text="Start">
+                                <VBox.margin>
+                                    <Insets />
+                                </VBox.margin>
+                            </JFXButton>
+                            <JFXButton onAction="#btnStopRfidRead" prefHeight="74.0" prefWidth="77.0" text="Stop" />
+                        </children>
+                    </VBox>
+               <TreeTableView fx:id="tableRfids" prefHeight="737.0" prefWidth="1419.0">
+                  <columns>
+                     <TreeTableColumn fx:id="colUHFId" prefWidth="732.0000152587891" text="ID" />
+                     <TreeTableColumn fx:id="colName" maxWidth="684.0" minWidth="0.0" prefWidth="684.0" text="Наименование" />
+                  </columns>
+               </TreeTableView>
+                </children>
+            </HBox>
+        </children>
+    </Pane>
+   <Label fx:id="allCount" layoutX="79.0" layoutY="797.0" prefHeight="20.0" prefWidth="403.0" text="Count:" textFill="#0fd039">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Label>
+
+    <Label fx:id="lalbelLog" alignment="CENTER_RIGHT" layoutX="1022.0" layoutY="795.0" prefHeight="20.0" prefWidth="468.0" textFill="RED">
+        <padding>
+            <Insets right="30.0" />
+        </padding>
+        <font>
+            <Font name="System Bold" size="14.0" />
+        </font>
+    </Label>
+
+    <Pane fx:id="pnlSettings" layoutX="1131.0" layoutY="49.0" opacity="0.9" prefHeight="466.0" prefWidth="352.0" style="-fx-background-color: #fff;" visible="false">
+        <children>
+            <VBox layoutX="-3.0" prefHeight="462.0" prefWidth="391.0" style="-fx-background-color: lightgray;">
+                <children>
+                    <HBox prefHeight="65.0" prefWidth="390.0">
+                        <children>
+                            <Label prefHeight="52.0" prefWidth="287.0" text="IP">
+                                <padding>
+                                    <Insets top="20.0" />
+                                </padding>
+                            </Label>
+                            <JFXTextField fx:id="tfldIP" prefHeight="37.0" prefWidth="379.0">
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                                <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                </padding>
+                            </JFXTextField>
+                        </children>
+                        <padding>
+                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </padding>
+                    </HBox>
+                    <HBox prefHeight="65.0" prefWidth="390.0">
+                        <children>
+                            <Label prefHeight="52.0" prefWidth="287.0" text="PORT">
+                                <padding>
+                                    <Insets top="20.0" />
+                                </padding>
+                            </Label>
+                            <JFXTextField fx:id="tfldPort" prefHeight="37.0" prefWidth="379.0">
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                                <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                </padding>
+                            </JFXTextField>
+                        </children>
+                        <padding>
+                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </padding>
+                    </HBox>
+                    <HBox prefHeight="65.0" prefWidth="390.0">
+                        <children>
+                            <Label prefHeight="52.0" prefWidth="287.0" text="USERNAME">
+                                <padding>
+                                    <Insets top="20.0" />
+                                </padding>
+                            </Label>
+                            <JFXTextField fx:id="tfldUsername" prefHeight="37.0" prefWidth="379.0">
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                                <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                </padding>
+                            </JFXTextField>
+                        </children>
+                        <padding>
+                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </padding>
+                    </HBox>
+                    <HBox prefHeight="77.0" prefWidth="381.0">
+                        <children>
+                            <Label prefHeight="52.0" prefWidth="287.0" text="PASSWORD">
+                                <padding>
+                                    <Insets top="20.0" />
+                                </padding>
+                            </Label>
+                            <JFXPasswordField fx:id="tfldPassword" prefHeight="37.0" prefWidth="374.0">
+                                <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                </padding>
+                            </JFXPasswordField>
+                        </children>
+                        <padding>
+                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </padding>
+                    </HBox>
+                    <HBox prefHeight="77.0" prefWidth="381.0">
+                        <padding>
+                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </padding>
+                        <children>
+                            <JFXCheckBox fx:id="chbxAccBottle" onAction="#clicAccBottle" prefHeight="61.0" prefWidth="358.0" text="Accounting of bottles" />
+                            <JFXCheckBox fx:id="chbxSimple" onAction="#clicSample" prefHeight="61.0" prefWidth="358.0" text="Read all" />
+                        </children>
+                    </HBox>
+               <HBox prefHeight="77.0" prefWidth="381.0">
+                  <padding>
+                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  </padding>
+                  <children>
+                     <JFXCheckBox fx:id="chbxTest" onAction="#clickChbxTest" prefHeight="48.0" prefWidth="145.0" text="Test">
+                        <padding>
+                           <Insets bottom="10.0" top="10.0" />
+                        </padding>
+                     </JFXCheckBox>
+                  </children>
+               </HBox>
+                    <HBox prefHeight="77.0" prefWidth="381.0">
+                        <padding>
+                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </padding>
+                        <children>
+                            <JFXButton fx:id="btnSaveSettings" onAction="#clckSaveSettings" prefHeight="55.0" prefWidth="169.0" style="-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),        linear-gradient(#020b02, #3a3a3a),        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),        linear-gradient(#777777 0%, #606060 50%, #505250 51%, #2a2b2a 100%); -fx-background-radius: 2px;" text="Save" textFill="#e1e1e1">
+                                <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                </padding>
+                        <effect>
+                           <Shadow />
+                        </effect></JFXButton>
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+        </children></Pane>
+
+    <Pane fx:id="pnlConnect" layoutX="1095.0" layoutY="52.0" opacity="0.9" prefHeight="428.0" prefWidth="391.0" style="-fx-background-color: lightgray;" visible="false">
+        <children>
+            <VBox prefHeight="200.0" prefWidth="373.0">
+                <children>
+                    <HBox prefHeight="65.0" prefWidth="390.0">
+                        <children>
+                            <Label prefHeight="52.0" prefWidth="287.0" text="ID">
+                                <padding>
+                                    <Insets top="20.0" />
+                                </padding>
+                            </Label>
+                            <JFXTextField fx:id="tfldSQLId" prefHeight="37.0" prefWidth="379.0">
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                                <padding>
+                                    <Insets left="10.0" right="10.0" top="10.0" />
+                                </padding>
+                            </JFXTextField>
+                        </children>
+                        <padding>
+                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </padding>
+
+                        <children>
+                            <Label prefHeight="52.0" prefWidth="287.0" text="Name">
+                                <padding>
+                                    <Insets top="20.0" />
+                                </padding>
+                            </Label>
+                            <JFXTextField fx:id="tfldSQLName" prefHeight="37.0" prefWidth="379.0">
+                                <HBox.margin>
+                                    <Insets />
+                                </HBox.margin>
+                                <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                </padding>
+                            </JFXTextField>
+                        </children>
+                        <padding>
+                            <Insets bottom="20.0" left="20.0" right="20.0" />
+                        </padding>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0">
+                        <children>
+                            <JFXButton onAction="#clckChoosFile" prefHeight="48.0" prefWidth="180.0" text="Choose excel file...">
+                                <padding>
+                                    <Insets left="-43.0" />
+                                </padding>
+                            </JFXButton>
+                        </children>
+                        <padding>
+                            <Insets bottom="10.0" right="10.0" top="10.0" />
+                        </padding>
+                    </HBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0">
+                        <VBox.margin>
+                            <Insets top="20.0" />
+                        </VBox.margin>
+                        <children>
+                            <JFXButton onAction="#clckSendData" prefHeight="37.0" prefWidth="116.0" style="-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),        linear-gradient(#020b02, #3a3a3a),        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),        linear-gradient(#777777 0%, #606060 50%, #505250 51%, #2a2b2a 100%);" text="Send" textFill="WHITE">
+                                <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                </padding>
+                                <HBox.margin>
+                                    <Insets left="20.0" />
+                                </HBox.margin>
+                            </JFXButton>
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+        </children>
+    </Pane>
+</AnchorPane>

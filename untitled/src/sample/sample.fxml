@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXScrollPane?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <JFXScrollPane prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <JFXTreeTableView fx:id="tableView">
+                    <columns>
+                        <TreeTableColumn fx:id="colUHFId" prefWidth="300.0" text="Column X" />
+                        <TreeTableColumn fx:id="colName" prefWidth="299.0" text="Column X" />
+                    </columns>
+                </JFXTreeTableView>
+            </children>
+        </JFXScrollPane>
+    </children>
+</Pane>
